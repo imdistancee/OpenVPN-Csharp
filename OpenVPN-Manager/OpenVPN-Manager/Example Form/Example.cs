@@ -7,7 +7,6 @@ namespace OpenVPN_Manager
     {
         private OpenVPN vpn;
         private string OVPNFile { get; set; }
-        private bool Connected { get; set; } = false;
 
         public Example()
         {
@@ -40,7 +39,6 @@ namespace OpenVPN_Manager
         private void Vpn_onConnectionChanged(bool connected)
         {
             //you can do whatever u want with this.
-            this.Connected = connected;
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -66,7 +64,7 @@ namespace OpenVPN_Manager
         private void btnDisconnect_Click(object sender, EventArgs e)
         {
             //this checks to see if you are connected to a server.
-            if (Connected)
+            if (vpn.Connected)
             {
                 //this method disconnects from the openvpn server.
                 vpn.Disconnect();

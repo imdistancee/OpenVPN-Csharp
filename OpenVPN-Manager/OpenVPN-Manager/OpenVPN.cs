@@ -36,9 +36,9 @@ namespace OpenVPN_Manager
         public event ConnectionStatusChanged onStatusChanged;
 
         /// <summary>
-        /// this is for this class only. checks to see if openvpn is connected or not.
+        /// this checks to see if openvpn is connected or not.
         /// </summary>
-        private bool Connected { get; set; } = false;
+        public bool Connected { get; set; } = false;
 
         /// <summary>
         /// this is used for getting logs.
@@ -203,7 +203,7 @@ namespace OpenVPN_Manager
                 logChecker.CancelAsync();
             }
 
-            //runs the log worker.
+            //runs the log checker
             logChecker.RunWorkerAsync();
         }
 
